@@ -3,5 +3,3 @@
 digitize_string(String), T -->
     { string_codes(String, [H|T]) },
     String.
-
-
