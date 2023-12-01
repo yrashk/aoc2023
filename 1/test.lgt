@@ -7,7 +7,8 @@
 
 example(positive, sample, 142).
 example(positive, sample1, 142).
-example(positive, input, 56049).
+example(positive, input, 54530).
+example(positive, part2_sample, 281).
 
 example(negative, sample, 14).
 
