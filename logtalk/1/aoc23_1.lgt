@@ -17,7 +17,7 @@ solve(File, Solution) :-
 digitize(Digit) -->
     [C], { char_type(C, digit(Digit)) }.
 % Below we are going to push codes for the remainder of numbers
-% so they can be parsed again. It's a bit ugly TBH
+% using semicontext notation so they can be parsed again. It's a bit ugly TBH
 % (110: n, 101: e and so on)
 digitize(1), [110, 101] -->
     "one".
