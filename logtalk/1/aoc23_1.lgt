@@ -14,29 +14,31 @@
 solve(File, Solution) :-
     phrase_from_file(parse(Solution), File).
 
+:- use_module(dcgs, [digitize_string//1]).
+
 digitize(Digit) -->
     [C], { char_type(C, digit(Digit)) }.
 % Below we are going to push codes for the remainder of numbers
 % using semicontext notation so they can be parsed again. It's a bit ugly TBH
 % (110: n, 101: e and so on)
-digitize(1), [110, 101] -->
-    "one".
-digitize(2), [119, 111] -->
-    "two".
-digitize(3), [104, 114, 101, 101] -->
-    "three".
-digitize(4), [111, 117, 114] -->
-    "four".
-digitize(5), [105, 118, 101] -->
-    "five".
-digitize(6), [105, 120] -->
-    "six".
-digitize(7), [101, 118, 101, 110] -->
-    "seven".
-digitize(8), [105, 103, 104, 116] -->
-    "eight".
-digitize(9), [105, 110, 101] -->
-    "nine".
+digitize(1) -->
+    digitize_string("one").
+digitize(2) -->
+    digitize_string("two").
+digitize(3) -->
+    digitize_string("three").
+digitize(4) -->
+    digitize_string("four").
+digitize(5) -->
+    digitize_string("five").
+digitize(6) -->
+    digitize_string("six").
+digitize(7) -->
+    digitize_string("seven").
+digitize(8) -->
+    digitize_string("eight").
+digitize(9)-->
+    digitize_string("nine").
 
 parse(Solution) --> parse(Solution0, 0, [_, _]), !, { Solution is Solution0 }.
 
