@@ -7,6 +7,5 @@
       loader]),
     Hooks = [assertions(debug), lgtunit],
     logtalk_load([test], [hook(hook_set(Hooks))]),
-	findall(T, (current_object(T), extends_object(T, lgtunit)), Ts),
-    lgtunit::run_test_sets(Ts)
+    forall((current_object(T), extends_object(T, lgtunit)), T::run)
 )).

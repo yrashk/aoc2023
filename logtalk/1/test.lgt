@@ -1,8 +1,3 @@
-% lgtunit::run_test_sets requires at least two tests
-% (don't know why yet)
-:- object(dummy_test, extends(lgtunit)).
-:- end_object.
-
 :- object(aoc23_1_test, extends(lgtunit)).
 
 example(positive, sample, 142).
