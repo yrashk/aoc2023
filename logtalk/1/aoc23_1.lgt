@@ -1,4 +1,4 @@
-:- object(aoc23_1).
+:- object(aoc23_1, implements(aoc23_1_solver)).
 
 :- info([
       author is 'Yurii Rashkovskii',
@@ -8,8 +8,6 @@
 
 :- use_module(library(pure_input), [phrase_from_file/2]).
 :- meta_predicate(phrase_from_file(2, *)).
-
-:- public(solve/2).
 
 solve(File, Solution) :-
     phrase_from_file(parse(Solution), File).
