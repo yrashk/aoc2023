@@ -10,10 +10,10 @@ example(negative, sample, 14).
 solver(Solver) :-
     current_object(Solver), implements_protocol(Solver, aoc23_1_solver).
 
-test(positive) :-
-  forall((solver(S), example(positive, File, Answer)), ::assertion(S::solve(File, Answer))).
+test(positive, all(S::solve(File, Answer))) :-
+  solver(S), example(positive, File, Answer).
 
-test(negative) :-
-  forall((solver(S), example(negative, File, Answer)), ::assertion(\+ S::solve(File, Answer))).
+test(negative, all(\+ S::solve(File, Answer))) :-
+  solver(S), example(negative, File, Answer).
 
 :- end_object.
